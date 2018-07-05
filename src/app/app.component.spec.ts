@@ -1,3 +1,4 @@
+import { MatToolbarModule, MatMenuModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 describe('AppComponent', () => {
@@ -6,6 +7,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [MatToolbarModule, MatMenuModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
@@ -25,3 +27,13 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to testMaterial!');
   }));
 });
+
+export class MatIconMock {
+  // When the component calls this.dialog.open(...) we'll return an object
+  // with an afterClosed method that allows to subscribe to the dialog result observable.
+  open() {
+    return {
+
+    };
+  }
+};
