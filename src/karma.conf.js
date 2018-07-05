@@ -25,7 +25,23 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    customLaunchers: {
+      Chrome_headless: {
+        base: 'Chrome',
+        flags: ['--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--headless',
+          '--remote-debugging-port=9222',
+          '--user-data=~',
+          '--disable-gpu'
+        ]
+      },
+      Chrome_default: {
+        base: 'Chrome',
+        flags: []
+      }
+    },
+    browsers: ['Chrome_default'],
     singleRun: false
   });
 };
